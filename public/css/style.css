@@ -1,0 +1,340 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'avenir next', avenir, helvetica, arial, sans-serif;
+  background: #e1e1e1 url(../images/climpek.png) 0 0;
+  height: 100%;
+}
+
+.mainHeader {
+  max-height: 55px;
+  border-bottom: 1px solid #D8D8D8;
+  height: 70px;
+  background: #F5F4F1;
+  padding: 0 10px;
+  position: relative;
+  z-index: 100;
+}
+
+.mainHeader .logo {
+  background: url(../images/automatic-logo-header.png) 0 0 no-repeat;
+  width: 119px;
+  height: 33px;
+  float: left;
+  margin: 10px 0;
+  display: inline;
+  vertical-align: middle;
+}
+
+.mainHeader .navbar {
+  padding-top: 4px;
+  margin-bottom: 0;
+}
+
+.mainHeader nav {
+  float: right;
+  padding-top: 0;
+}
+
+.mainHeader .navbar-toggle {
+  margin-bottom: 0;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.titlebar {
+  position: absolute;
+  left: 144px;
+  padding-top: 10px;
+  width: 110px;
+}
+
+.titlebar h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.titlebar .full-title {
+  display: none;
+}
+
+.signin-panel {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 70px auto 0;
+  max-width: 600px;
+}
+
+.signin-panel .border-top {
+  border-top: 1px solid #ebeae6;
+  padding: 10px 20px;
+}
+
+.signin-panel .border-both {
+  border-bottom: 1px solid #ebeae6;
+  border-top: 1px solid #ebeae6;
+  padding: 10px 20px;
+}
+
+.signin-title {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 32px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signin-graphics {
+  height: 46px;
+  margin: 10px auto 30px;
+  position: relative;
+  width: 232px;
+}
+
+.signin-graphics .logo-badge-automatic {
+  background: url("../images/logo_badge_automatic.png") 0 0 no-repeat;
+  height: 39px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 36px;
+}
+
+.signin-graphics .icon-integrations-arrows {
+  background: url("../images/icon_integrations_arrows.png") 0 0 no-repeat;
+  height: 46px;
+  left: 59px;
+  position: absolute;
+  top: 0;
+  width: 113px;
+}
+
+.signin-graphics .logo-badge-automatic-webhook-demo {
+  font-size: 49px;
+  height: 39px;
+  left: 182px;
+  line-height: 49px;
+  margin: 0 0 0 5px;
+  position: absolute;
+  top: 3px;
+  width: 39px;
+}
+
+.signin-instructions {
+  display: block;
+  font-size: 18px;
+}
+
+.signin-text {
+  text-align: center;
+}
+
+.signin-btn {
+  background: url("../images/auth_automatic-connect-28-sprite.svg") 0 0 no-repeat;
+  background-size: 205px 64px;
+  display: block;
+  height: 32px;
+  margin: 10px auto 0;
+  text-indent: -9999px;
+  width: 205px;
+}
+
+.signin-btn:hover, .signin-btn:active {
+  background-position: 0 -32px;
+}
+
+.signin-learnmore {
+  margin: 50px 0 10px;
+  text-align: center;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding-top: 55px;
+  top: 0;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-wrapper .alert {
+  left: 50%;
+  margin-left: -115px;
+  position: absolute;
+  top: 105px;
+}
+
+.stats {
+  background: #fff;
+  border-color: rgba(0,0,0,.4);
+  border-radius: 3px;
+  border: 1px solid #999;
+  height: 30px;
+  padding: 5px 8px;
+  position: absolute;
+  right: 10px;
+  top: 65px;
+  width: 110px;
+}
+
+.github-fork-ribbon {
+  position: absolute;
+  padding: 2px 0;
+  background-color: #a00;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.00)), to(rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
+  filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#000000', EndColorStr='#000000');
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  pointer-events: auto;
+  top: 42px;
+  right: -43px;
+  /* Rotate the banner 45 degrees */
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.github-fork-ribbon a, .github-fork-ribbon a:hover {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 200px;
+  line-height: 20px;
+  display: inline-block;
+  padding: 2px 0;
+  border-width: 1px 0;
+  border-style: dotted;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.github-fork-ribbon-wrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  right: 0;
+}
+
+.driveEvent-popup .leaflet-popup-content-wrapper {
+  background: rgba(66, 73, 79, 0.88);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.driveEvent-popup .leaflet-popup-content-wrapper a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.driveEvent-popup .leaflet-popup-tip-container {
+  width: 30px;
+  height: 15px;
+}
+
+.driveEvent-popup .leaflet-popup-tip {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid rgba(66, 73, 79, 0.88);
+}
+
+@media (min-width: 580px) {
+  .mainHeader {
+    padding: 0 20px;
+  }
+
+  .mainHeader .navbar {
+    background: none;
+    border: none;
+  }
+
+  .titlebar {
+    width: 450px;
+    margin-left: 30px;
+  }
+
+  .titlebar h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+
+  .titlebar .full-title {
+    display: inline;
+  }
+
+  .map-wrapper .alert {
+    top: 65px;
+  }
+
+  .signin-body {
+    overflow: hidden;
+  }
+  .signin-instructions {
+    display: inline-block;
+  }
+  .signin-text {
+    line-height: 40px;
+  }
+  .signin-btn {
+    float: right;
+    margin-top: 4px;
+  }
+  .signin-panel {
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+  .signin-panel .border-top {
+    padding: 10px 40px;
+  }
+  .signin-panel .border-both {
+    padding: 10px 40px;
+  }
+}
+
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  body {
+    background-image: url(../images/climpek@2x.png);
+    background-size: 44px 44px;
+  }
+
+  .mainHeader .logo {
+    background-image: url(../images/automatic-logo-header@2x.png);
+    background-size: 119px 33px;
+  }
+
+  .signin-graphics .logo-badge-automatic {
+    background-image: url("../images/logo_badge_automatic.png");
+    background-size: 36px 39px;
+  }
+
+  .signin-graphics .icon-integrations-arrows {
+    background-image: url("../images/icon_integrations_arrows.png");
+    background-size: 113px 46px;
+  }
+}
