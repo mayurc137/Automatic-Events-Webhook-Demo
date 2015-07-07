@@ -48,24 +48,20 @@ body {
   position: absolute;
   left: 144px;
   padding-top: 10px;
-  width: 110px;
+  width: 100px;
 }
 
 .titlebar h1 {
   margin-top: 0;
   margin-bottom: 0;
   letter-spacing: 1px;
-  font-size: 18px;
-}
-
-.titlebar .full-title {
-  display: none;
+  font-size: 12px;
 }
 
 .signin-panel {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   display: block;
-  margin: 70px auto 0;
+  margin: 0 auto;
   max-width: 600px;
 }
 
@@ -190,58 +186,6 @@ body {
   width: 110px;
 }
 
-.github-fork-ribbon {
-  position: absolute;
-  padding: 2px 0;
-  background-color: #a00;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.00)), to(rgba(0, 0, 0, 0.15)));
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
-  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.15));
-  filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#000000', EndColorStr='#000000');
-  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  pointer-events: auto;
-  top: 42px;
-  right: -43px;
-  /* Rotate the banner 45 degrees */
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.github-fork-ribbon a, .github-fork-ribbon a:hover {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  width: 200px;
-  line-height: 20px;
-  display: inline-block;
-  padding: 2px 0;
-  border-width: 1px 0;
-  border-style: dotted;
-  border-color: rgba(255, 255, 255, 0.7);
-}
-
-.github-fork-ribbon-wrapper {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  z-index: 9999;
-  pointer-events: none;
-  right: 0;
-}
-
 .driveEvent-popup .leaflet-popup-content-wrapper {
   background: rgba(66, 73, 79, 0.88);
   color: #fff;
@@ -264,6 +208,16 @@ body {
   border-top: 15px solid rgba(66, 73, 79, 0.88);
 }
 
+@media (min-width: 400px) {
+  .titlebar {
+    width: 158px;
+  }
+
+  .titlebar h1 {
+    font-size: 18px;
+  }
+}
+
 @media (min-width: 580px) {
   .mainHeader {
     padding: 0 20px;
@@ -282,10 +236,6 @@ body {
   .titlebar h1 {
     font-size: 28px;
     letter-spacing: 3px;
-  }
-
-  .titlebar .full-title {
-    display: inline;
   }
 
   .map-wrapper .alert {
