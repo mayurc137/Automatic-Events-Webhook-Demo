@@ -2,6 +2,8 @@
 
 A node.js app to demonstrate the use of webhooks with the [Automatic Events API](https://developer.automatic.com/api-reference/#real-time-events). It maps realtime location events on a map.
 
+![webhook-demo](https://cloud.githubusercontent.com/assets/96217/8557545/e2e9a692-24b2-11e5-8b22-97c1189aa261.png)
+
 This app listens to events for all authorized users of this app via a webhook URL. It then sends each logged-in user's events to their browser via a websocket connection. The result is that users can see a realtime stream of their own vehicle events.
 
 The app is designed responsively to work well in mobile browsers.
