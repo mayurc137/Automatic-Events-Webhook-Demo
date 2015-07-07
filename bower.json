@@ -1,11 +1,11 @@
 {
-  "name": "automatic-webhook-demo",
+  "name": "automatic-events-webhook-demo",
   "version": "0.0.1",
-  "homepage": "https://github.com/Automatic/automatic-webhook-demo",
+  "homepage": "https://github.com/Automatic/automatic-events-webhook-demo",
   "authors": [
     "Brendan Nee <brendan@automatic.com>"
   ],
-  "description": "Automatic Webhook Demo Application",
+  "description": "Automatic Events Webhook Demo Application",
   "dependencies": {
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",

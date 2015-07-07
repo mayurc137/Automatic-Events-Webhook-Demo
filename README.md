@@ -1,6 +1,6 @@
-# Automatic Webhook Demo App
+# Automatic Events Webhook Demo App
 
-A node.js app to demonstrate the use of the [Automatic Webhook API](https://developer.automatic.com/api-reference/#real-time-events). It maps realtime location events on a map.
+A node.js app to demonstrate the use of webhooks with the [Automatic Events API](https://developer.automatic.com/api-reference/#real-time-events). It maps realtime location events on a map.
 
 This app listens to events for all authorized users of this app via a webhook URL. It then sends each logged-in user's events to their browser via a websocket connection. The result is that users can see a realtime stream of their own vehicle events.
 
@@ -8,7 +8,7 @@ The app is designed responsively to work well in mobile browsers.
 
 ## Demo
 
-A version of this application is available at [https://automatic-webhook-demo.herokuapp.com](https://automatic-webhook-demo.herokuapp.com).
+A version of this application is available at [https://automatic-events-webhook-demo.herokuapp.com](https://automatic-events-webhook-demo.herokuapp.com).
 
 ## One-Click deploy to Heroku
 
@@ -41,7 +41,7 @@ Get a [mapbox access token](https://www.mapbox.com/signup/) and add it to the `c
 
 ### Run the app
 
-    DEBUG=automatic-webhook-demo gulp develop
+    DEBUG=automatic-events-webhook-demo gulp develop
 
 ### View the app
 
@@ -51,7 +51,7 @@ Open `localhost:3000` in your browser.
 
 You can test locally as a logged in user, bypassing OAuth by including an `TOKEN` and `USER_ID` when running the app.
 
-    DEBUG=automatic-webhook-demo USER_ID=<YOUR_USER_ID> TOKEN=<YOUR-AUTOMATIC-ACCESS-TOKEN> gulp develop
+    DEBUG=automatic-events-webhook-demo USER_ID=<YOUR_USER_ID> TOKEN=<YOUR-AUTOMATIC-ACCESS-TOKEN> gulp develop
 
 ## Deploying
 

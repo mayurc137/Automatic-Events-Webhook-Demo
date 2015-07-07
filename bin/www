@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('automatic-webhook-demo');
+var debug = require('debug')('automatic-events-webhook-demo');
 var nconf = require('nconf');
 
 nconf
