@@ -46,34 +46,31 @@ ws.onmessage = function (msg) {
   }
 
   description.push('<b>' + title + '</b>');
+
+  if (data.type === 'trip:finished') {
+    description.push('Distance: <b>' + (metersToMiles(data.trip.distance_m) || 0).toFixed(1) + ' miles</b>');
+    description.push('Duration: <b>' + formatDuration(data.trip.end_time - data.trip.start_time) + '</b>');
+    description.push('Average MPG: <b>' + (data.trip.average_mpg || 0).toFixed(1) + ' mpg</b>');
+    description.push('Start Location: <b>' + data.trip.start_location.name + '</b>');
+    description.push('End Location: <b>' + data.trip.end_location.name + '</b>');
+  } else if (data.type === 'notification:speeding') {
+    description.push('Speed: <b>' + data.speed_mph.toFixed() + ' mph</b>');
+  } else if (data.type === 'notification:hard_accel') {
+    description.push('Acceleration: <b>' + data.g_force.toFixed(3) + 'g</b>');
+  } else if (data.type === 'notification:hard_brake') {
+    description.push('Deceleration: <b>' + data.g_force.toFixed(3) + 'g</b>');
+  } else if (data.type === 'mil:on' || data.type == 'mil:off') {
+    if(data.dtcs) {
+      data.dtcs.forEach(function(dtc) { description.push('MIL: <b>' + dtc.code + ': ' + dtc.description + '</b>'); });
+    }
+  }
+
   description.push('Date: <b>' + moment(date).format('MMM D, YYYY') + '</b>');
   description.push('Time: <b>' + moment(date).format('h:mm a') + '</b>');
 
   if(data.location) {
     if(data.location.accuracy_m) {
       description.push('Accuracy: <b>' + data.location.accuracy_m.toFixed(0) + 'm</b>');
-    }
-
-    if (data.type === 'trip:finished') {
-      description.push('Distance: <b>' + (metersToMiles(data.trip.distance_m) || 0).toFixed(1) + ' miles</b>');
-      description.push('Duration: <b>' + formatDuration(data.trip.end_time - data.trip.start_time) + '</b>');
-      description.push('Average MPG: <b>' + (data.trip.average_mpg || 0).toFixed(1) + ' mpg</b>');
-      description.push('Start Location: <b>' + data.trip.start_location.name + '</b>');
-      description.push('End Location: <b>' + data.trip.end_location.name + '</b>');
-    } else if (data.type === 'notification:speeding') {
-      description.push('Speed: <b>' + data.speed_mph.toFixed() + ' mph</b>');
-    } else if (data.type === 'notification:hard_accel') {
-      description.push('Acceleration: <b>' + data.g_force.toFixed(3) + 'g</b>');
-    } else if (data.type === 'notification:hard_brake') {
-      description.push('Deceleration: <b>' + data.g_force.toFixed(3) + 'g</b>');
-    } else if (data.type === 'region:changed') {
-      description.push(data.region.status + ' ' + data.region.name + ' (' + data.region.tag + ')');
-    } else if (data.type === 'mil:on' || data.type == 'mil:off') {
-      if(data.dtcs) {
-        data.dtcs.forEach(function(dtc) { description.push('MIL: <b>' + dtc.code + ': ' + dtc.description + '</b>'); });
-      }
-    } else if (data.type === 'hmi:interaction') {
-      description.push('Button: <b>' + data.button.id + ' ' + data.interaction + '</b>');
     }
 
     var location = {
@@ -169,11 +166,8 @@ function getEventName(type) {
     'notification:speeding': 'Speed Exceeded Threshold',
     'notification:hard_brake': 'Hard Brake',
     'notification:hard_accel': 'Hard Acceleration',
-    'region:changed': 'Region Changed',
-    'parking:changed': 'Parking Location Changed',
     'mil:on': 'MIL (check engine light) On',
-    'mil:off': 'MIL (check engine light) Cleared',
-    'hmi:interaction': 'Car Interaction'
+    'mil:off': 'MIL (check engine light) Cleared'
   };
 
   return events[type] || type || 'Unknown';
@@ -205,17 +199,4 @@ function formatLocation(response) {
   } catch(e) {
     return '';
   }
-}
-
-
-function metersToMiles(distance_m) {
-  return distance_m / 1609.34;
-}
-
-
-function formatDuration(ms) {
-  var duration = moment.duration(ms, 'ms'),
-      hours = (duration.asHours() >= 1) ? Math.floor(duration.asHours()) + ' h ' : '',
-      minutes = duration.minutes() + ' min';
-  return hours + minutes;
 }
