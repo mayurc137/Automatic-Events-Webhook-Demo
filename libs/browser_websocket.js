@@ -22,9 +22,9 @@ exports.setupClientWebsocket = function (app) {
 
 
   wss.sendEvent = function (data) {
-    if(data && data.user && data.user.id) {
+    if (data && data.user && data.user.id) {
       var clients = _.filter(this.clients, function (c) {
-        return c.user_id == data.user.id;
+        return c.user_id == data.user.v2_id;
       });
       clients.forEach(function (client) {
         client.send(JSON.stringify(data));

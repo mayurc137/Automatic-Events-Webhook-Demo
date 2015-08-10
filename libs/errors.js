@@ -4,7 +4,7 @@ module.exports = function (app) {
     var err = new Error('Not Found');
     err.status = 404;
     res.status(404);
-    if(req.xhr) {
+    if (req.xhr) {
       res.send({
         message: err.message,
         error: {}
@@ -20,9 +20,9 @@ module.exports = function (app) {
 
   // catch 401 Unauthorized errors
   app.use(function (err, req, res, next) {
-    if(err.status !== 401) return next(err);
+    if (err.status !== 401) return next(err);
     res.status(401);
-    if(req.xhr) {
+    if (req.xhr) {
       res.send({
         message: err.message,
         error: err
@@ -45,10 +45,10 @@ module.exports = function (app) {
 
   // development 500 error handler
   // will print stacktrace
-  if(app.get('env') === 'development') {
+  if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
       res.status(500);
-      if(req.xhr) {
+      if (req.xhr) {
         res.send({
           message: err.message,
           error: err
@@ -67,7 +67,7 @@ module.exports = function (app) {
   // no stacktraces leaked to user
   app.use(function (err, req, res, next) {
     res.status(500);
-    if(req.xhr) {
+    if (req.xhr) {
       res.send({
         message: err.message,
         error: {}

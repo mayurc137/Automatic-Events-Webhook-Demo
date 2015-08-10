@@ -1,9 +1,10 @@
 var nconf = require('nconf');
+var request = require('request');
 
 var oauth2 = require('simple-oauth2')({
   clientID: nconf.get('AUTOMATIC_CLIENT_ID'),
   clientSecret: nconf.get('AUTOMATIC_CLIENT_SECRET'),
-  site: 'https://accounts.automatic.com',
+  site: nconf.get('AUTOMATIC_ACCOUNTS_URL'),
   tokenPath: '/oauth/access_token'
 });
 
@@ -23,25 +24,34 @@ exports.redirect = function (req, res, next) {
   oauth2.authCode.getToken({
     code: code
   }, function (e, result) {
-    if(e) return next(e);
+    if (e) return next(e);
 
     // Attach `token` to the user's session for later use
     var token = oauth2.accessToken.create(result);
 
     req.session.access_token = token.token.access_token;
-    req.session.user_id = token.token.user.id;
 
-    res.redirect('/');
+    // Get Automatic user id
+    request.get({
+      uri: nconf.get('AUTOMATIC_API_URL') + '/user/me/',
+      headers: {Authorization: 'bearer ' + req.session.access_token},
+      json: true
+    }, function(e, r, body) {
+      if (e) return next(e);
+
+      req.session.user_id = body.id;
+      res.redirect('/');
+    });
   });
 };
 
 
 exports.ensureAuthenticated = function (req, res, next) {
-  if(req.session && req.session.access_token) {
+  if (req.session && req.session.access_token) {
     return next();
   }
 
-  if(req.xhr) {
+  if (req.xhr) {
     var error = new Error('Not logged in');
     error.setStatus(401);
     return next(error);
