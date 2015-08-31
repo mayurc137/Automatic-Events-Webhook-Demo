@@ -5,3 +5,15 @@ block content
     #map.map
     #alert.alert
     .stats Events: <span class="event-count">0</span>
+
+block scripts
+  script.
+    var mapboxAccessToken = '#{mapboxAccessToken}';
+
+  script(src="/bower_components/mapbox.js/mapbox.js")
+  script(src="/bower_components/polyline/src/polyline.js")
+  script(src="/bower_components/jquery/dist/jquery.min.js")
+  script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
+  script(src="/bower_components/moment/min/moment.min.js")
+  script(src="/javascripts/helpers.js")
+  script(src="/javascripts/index.js")
