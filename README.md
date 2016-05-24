@@ -14,7 +14,7 @@ A version of this application is available at [https://automatic-events-webhook-
 
 ## One-Click deploy to Heroku
 
-Click this button to instantly deploy this app to Heroku. You'll need an [Automatic client ID and secret](http://developer.automatic.com) as well as a [mapbox access token](https://www.mapbox.com/signup/).
+Click this button to instantly deploy this app to Heroku. You'll need an [Automatic client ID and secret](http://developer.automatic.com).
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -39,7 +39,7 @@ This will also grab frontend packages needed from bower and put them in `public/
 
 Copy the file `config-sample.json` to `config.json` and add your Automatic client id and client secret.  Alternatively, create environment variables named `AUTOMATIC_CLIENT_ID` and `AUTOMATIC_CLIENT_SECRET`.
 
-Get a [mapbox access token](https://www.mapbox.com/signup/) and add it to the `config.json` file.
+Get a [mapbox access token](https://www.mapbox.com/signup/) and add it to the top of the `public/javascripts/index.js` file.
 
 ### Run the app
 

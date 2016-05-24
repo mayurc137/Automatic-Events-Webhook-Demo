@@ -5,5 +5,5 @@ block content
     #alert.alert
     h1= message || 'Unknown Error'
     h2= error.status
-    pre #{error.stack || JSON.stringify(error || {})}
-      p #{description}
+    pre= error.stack || JSON.stringify(error || {})
+      p= description

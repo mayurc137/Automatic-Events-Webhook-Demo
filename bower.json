@@ -8,9 +8,9 @@
   "description": "Automatic Events Webhook Demo Application",
   "dependencies": {
     "bootstrap": "3.3.6",
-    "jquery": "2.1.4",
-    "mapbox.js": "2.2.3",
-    "moment": "2.10.6",
+    "jquery": "2.2.4",
+    "mapbox.js": "2.4.0",
+    "moment": "2.13.0",
     "polyline": "0.2.0"
   }
 }

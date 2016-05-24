@@ -1,21 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var memoryStore = session.MemoryStore;
-var store = new memoryStore();
-var nconf = require('nconf');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const MemoryStore = session.MemoryStore;
+const store = new MemoryStore();
+const nconf = require('nconf');
 
-var app = express();
+const app = express();
 
 app.set('store', store);
 
 // view engine setup
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -37,8 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Routes
-var routes = require('./routes');
-var oauth = require('./routes/oauth');
+const routes = require('./routes');
+const oauth = require('./routes/oauth');
 
 if (app.get('env') !== 'development') {
   // Force HTTPS in production
@@ -58,10 +58,10 @@ app.get('/redirect/', oauth.redirect);
 
 
 // Handle Incoming webhooks
-app.post('/webhook/', function(req, res) {
+app.post('/webhook/', (req, res) => {
   console.log('Incoming Webhook: ' + JSON.stringify(req.body));
   if (req.body) {
-    var wss = app.get('wss');
+    const wss = app.get('wss');
     wss.sendEvent(req.body);
     res.json({success: true});
   }
